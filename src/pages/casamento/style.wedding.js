@@ -12,6 +12,9 @@ export const LinkDiv = styled.div`
     color: white;
     text-decoration: none;
   }
+  @media (max-width:700px){
+    width: 40%;
+  }
 `;
 
 export const ProductList = styled.div`
@@ -19,4 +22,10 @@ export const ProductList = styled.div`
   height: 80vh;
   border: 4px solid #b8860b;
   border-radius: 15px;
+  @media (max-width:700px){
+      width: 100%;
+    
+      padding: 0;
+      margin: 0;
+  }
 `;

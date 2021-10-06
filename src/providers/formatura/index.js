@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { toast } from "react-toastify";
 
 export const GraduationContext = createContext();
 
@@ -7,6 +8,7 @@ export const GraduationProvider = ({ children }) => {
 
   const addToGraduation = (item) => {
     setGraduationList([...graduationList, item]);
+    toast.success("Item adicionado com sucesso");
   };
 
   const removeFromGraduation = (item) => {
@@ -14,6 +16,7 @@ export const GraduationProvider = ({ children }) => {
       return elem.id !== item.id;
     });
     setGraduationList(newList);
+    toast.success("Item removido com sucesso");
   };
 
   return (

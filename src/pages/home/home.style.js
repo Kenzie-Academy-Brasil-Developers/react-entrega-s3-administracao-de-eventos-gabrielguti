@@ -7,6 +7,10 @@ export const NavTag = styled.nav`
   background-color: #354739;
   height: 10vh;
   border-radius: 5px;
+
+  @media (max-width: 700px) {
+    font-size: 0.7rem;
+  }
 `;
 export const NavBar = styled.ul`
   display: flex;
@@ -32,6 +36,24 @@ export const NavBar = styled.ul`
     color: black;
     background-color: #ff9;
   }
+  @media (max-width: 700px) {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+    span{
+      padding: 1px;
+      /* visibility: hidden; */
+    }
+    li{
+      width: 25%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    
+  }
 `;
 
 export const List = styled.ul`
@@ -40,6 +62,11 @@ export const List = styled.ul`
   flex-wrap: wrap;
   border: 0;
   background-color: #ff9;
+
+  @media (max-width:700px){
+    padding: 0;
+    font-size: 0.6rem;
+  }
 `;
 
 export const ItemBox = styled.li`
@@ -75,9 +102,12 @@ export const ItemBox = styled.li`
     }
     font-weight: bolder;
   }
-  select{
+  select {
     border-radius: 5px;
     padding: 5px;
     background-color: wheat;
+  }
+  @media (max-width:700px){
+    width: 80%;
   }
 `;
