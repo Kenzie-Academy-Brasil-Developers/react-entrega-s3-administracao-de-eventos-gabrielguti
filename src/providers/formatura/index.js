@@ -5,11 +5,11 @@ export const GraduationContext = createContext();
 export const GraduationProvider = ({ children }) => {
   const [graduationList, setGraduationList] = useState([]);
 
-  const addToList = (item) => {
+  const addToGraduation = (item) => {
     setGraduationList([...graduationList, item]);
   };
 
-  const removeFromList = (item) => {
+  const removeFromGraduation = (item) => {
     const newList = graduationList.filter((elem) => {
       return elem.id !== item.id;
     });
@@ -18,7 +18,7 @@ export const GraduationProvider = ({ children }) => {
 
   return (
     <GraduationContext.Provider
-      value={{ graduationList, addToList, removeFromList }}
+      value={{ graduationList, addToGraduation, removeFromGraduation }}
     >
       {children}
     </GraduationContext.Provider>

@@ -1,14 +1,32 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import { ItemBox, List, NavBar, NavTag } from "./home.style";
+import { Content, ItemBox, List, NavBar, NavTag } from "./home.style";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { WeddingContext } from "../../providers/casamento";
+import { PartyContext } from "../../providers/confraternização";
+import { GraduationContext } from "../../providers/formatura";
+
 const Home = () => {
   const [beers, setBeers] = useState([]);
-  const [value, setValue] = useState("Confraternização");
+  const [value, setValue] = useState("");
 
-  const handle = () => {
-    console.log(value);
+  const { weddingList, addToWedding } = useContext(WeddingContext);
+  const { partyList, addToParty } = useContext(PartyContext);
+  const { graduationList, addToGraduation } = useContext(GraduationContext);
+
+  const handle = (value, item) => {
+    if (value === "Confraternização") {
+      addToParty(item);
+      setValue("");
+    } else if (value === "Casamento") {
+      addToWedding(item);
+      setValue("");
+    } else if (value === "Formatura") {
+      addToGraduation(item);
+      setValue("");
+    }
   };
 
   useEffect(() => {
@@ -19,20 +37,26 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <Content>
       <NavTag>
         <NavBar>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Home </Link>
           </li>
           <li>
-            <Link to="/wedding">Casamento</Link>
+            <Link to="/wedding">
+              Casamento <span>{weddingList.length}</span>
+            </Link>
           </li>
           <li>
-            <Link to="/party">Party</Link>
+            <Link to="/party">
+              Confraternização <span>{partyList.length}</span>
+            </Link>
           </li>
           <li>
-            <Link to="/graduation">Graduation</Link>
+            <Link to="/graduation">
+              Formatura <span>{graduationList.length}</span>
+            </Link>
           </li>
         </NavBar>
       </NavTag>
@@ -44,17 +68,20 @@ const Home = () => {
               <h2>{item.name}</h2>
               <p>{item.first_brewed}</p>
               <p id="desc">{item.description}</p>
-              <p>{item.volume.value} Litros</p>
+              <p>{item.volume.value} L</p>
               <select name="select" onChange={(e) => setValue(e.target.value)}>
+                <option value="" selected disabled>
+                  Escolha a Ocasião
+                </option>
                 <option value="Confraternização">Confraternização</option>
                 <option value="Casamento">Casamento</option>
                 <option value="Formatura">Formatura</option>
               </select>
-              <button onClick={handle}>Enviar</button>
+              <button onClick={() => handle(value, item)}>Adicionar</button>
             </ItemBox>
           ))}
       </List>
-    </div>
+    </Content>
   );
 };
 

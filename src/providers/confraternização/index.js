@@ -5,11 +5,11 @@ export const PartyContext = createContext();
 export const PartyProvider = ({ children }) => {
   const [partyList, setPartyList] = useState([]);
 
-  const addToList = (item) => {
+  const addToParty = (item) => {
     setPartyList([...partyList, item]);
   };
 
-  const removeFromList = (item) => {
+  const removeFromParty = (item) => {
     const newList = partyList.filter((elem) => {
       return elem.id !== item.id;
     });
@@ -18,7 +18,7 @@ export const PartyProvider = ({ children }) => {
   };
 
   return (
-    <PartyContext.Provider value={{ partyList, addToList, removeFromList }}>
+    <PartyContext.Provider value={{ partyList, addToParty, removeFromParty }}>
       {children}
     </PartyContext.Provider>
   );

@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+export const Content = styled.div`
+  background-color: #ff9;
+`;
 export const NavTag = styled.nav`
   background-color: #354739;
   height: 10vh;
@@ -9,6 +12,7 @@ export const NavBar = styled.ul`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  align-content: center;
   list-style: none;
   cursor: pointer;
   height: 100%;
@@ -20,12 +24,22 @@ export const NavBar = styled.ul`
       border-bottom: 2px solid wheat;
     }
   }
+  span {
+    border: 1px solid #ff9;
+    padding: 3px;
+    border-radius: 5px;
+    font-weight: bolder;
+    color: black;
+    background-color: #ff9;
+  }
 `;
 
 export const List = styled.ul`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   border: 0;
+  background-color: #ff9;
 `;
 
 export const ItemBox = styled.li`
@@ -47,5 +61,23 @@ export const ItemBox = styled.li`
   padding: 12px;
   #desc {
     font-size: 0.8rem;
+  }
+  button {
+    padding: 10px;
+    margin-top: 2vh;
+    border-radius: 5px;
+    border: 0;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    :hover {
+      opacity: 0.8;
+    }
+    font-weight: bolder;
+  }
+  select{
+    border-radius: 5px;
+    padding: 5px;
+    background-color: wheat;
   }
 `;
