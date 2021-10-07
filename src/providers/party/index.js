@@ -11,9 +11,9 @@ export const PartyProvider = ({ children }) => {
     toast.success("Item adicionado com sucesso");
   };
 
-  const removeFromParty = (item) => {
-    const newList = partyList.filter((elem) => {
-      return elem.id !== item.id;
+  const removeFromParty = (index) => {
+    const newList = partyList.filter((_, index2) => {
+      return index !== index2;
     });
 
     setPartyList(newList);

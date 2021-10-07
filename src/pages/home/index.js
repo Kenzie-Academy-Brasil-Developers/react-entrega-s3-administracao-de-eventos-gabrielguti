@@ -4,9 +4,9 @@ import { useState } from "react";
 import { Content, ItemBox, List, NavBar, NavTag } from "./home.style";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { WeddingContext } from "../../providers/casamento";
-import { PartyContext } from "../../providers/confraternização";
-import { GraduationContext } from "../../providers/formatura";
+import { WeddingContext } from "../../providers/wedding";
+import { PartyContext } from "../../providers/party";
+import { GraduationContext } from "../../providers/graduation";
 
 const Home = () => {
   const [beers, setBeers] = useState([]);

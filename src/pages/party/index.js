@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { WeddingContext } from "../../providers/casamento";
+import { PartyContext } from "../../providers/party/index";
 import { ItemBox } from "../home/home.style";
-import { ProductList, LinkDiv } from "./style.wedding";
-const Wedding = () => {
-  const { weddingList, removeFromWedding } = useContext(WeddingContext);
+import { ProductList, LinkDiv } from "../wedding/style.wedding";
+
+const Party = () => {
+  const { partyList, removeFromParty } = useContext(PartyContext);
 
   return (
     <div>
@@ -12,17 +13,17 @@ const Wedding = () => {
         <Link to="/">Voltar</Link>
       </LinkDiv>
       <h1>
-        Bebidas para o casamento: <span>{weddingList.length}</span>
+        Bebidas para a Confraternização: <span>{partyList.length}</span>
       </h1>
       <ProductList>
-        {weddingList.map((item) => (
+        {partyList.map((item, index) => (
           <ItemBox key={item.id}>
             <img alt="beer" src={item.image_url} />
             <h2>{item.name}</h2>
             <p>{item.first_brewed}</p>
             <p id="desc">{item.description}</p>
             <p>{item.volume.value} L</p>
-            <button onClick={() => removeFromWedding(item)}>Remover</button>
+            <button onClick={() => removeFromParty(index)}>Remover</button>
           </ItemBox>
         ))}
       </ProductList>
@@ -30,4 +31,4 @@ const Wedding = () => {
   );
 };
 
-export default Wedding;
+export default Party;

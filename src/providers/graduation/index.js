@@ -11,9 +11,9 @@ export const GraduationProvider = ({ children }) => {
     toast.success("Item adicionado com sucesso");
   };
 
-  const removeFromGraduation = (item) => {
-    const newList = graduationList.filter((elem) => {
-      return elem.id !== item.id;
+  const removeFromGraduation = (index) => {
+    const newList = graduationList.filter((_, index2) => {
+      return index !== index2;
     });
     setGraduationList(newList);
     toast.success("Item removido com sucesso");

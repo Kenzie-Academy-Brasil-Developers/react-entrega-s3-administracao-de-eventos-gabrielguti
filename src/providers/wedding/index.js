@@ -10,9 +10,9 @@ export const WeddingProvider = ({ children }) => {
     toast.success("Item adicionado com sucesso");
   };
 
-  const removeFromWedding = (item) => {
-    const newList = weddingList.filter((elem) => {
-      return elem.id !== item.id;
+  const removeFromWedding = (index) => {
+    const newList = weddingList.filter((_, index2) => {
+      return index2 !== index
     });
 
     setWeddingList(newList);

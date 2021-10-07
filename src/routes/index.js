@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router";
-import Wedding from "../pages/casamento";
-import Party from "../pages/confraternização";
-import Graduation from "../pages/formatura";
+import Wedding from "../pages/wedding";
+import Party from "../pages/party";
+import Graduation from "../pages/graduation";
 import Home from "../pages/home";
 
 const Routes = () => {

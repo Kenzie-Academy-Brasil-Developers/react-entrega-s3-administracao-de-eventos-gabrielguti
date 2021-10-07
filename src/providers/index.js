@@ -1,6 +1,6 @@
-import { WeddingProvider } from "./casamento";
-import { PartyProvider } from "./confraternização";
-import { GraduationProvider } from "./formatura";
+import { WeddingProvider } from "./wedding";
+import { PartyProvider } from "./party";
+import { GraduationProvider } from "./graduation";
 
 const Providers = ({ children }) => {
   return (
